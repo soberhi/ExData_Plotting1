@@ -13,7 +13,7 @@ df$myDate <- as.Date(df$Date, format = "%m/%d/%Y")
 df$myTime <- strptime(paste(df$myDate, df$Time), format = "%Y-%m-%d %H:%M:%S")
 
 ## create plot
-plot(x = df$myTime, y = df$Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)", xlab = "", ylim=c(0,6))
 myFile <- "exdata_data_household_power_consumption/plot2.png"
-dev.copy(png, filename=paste(myDir,myFile,sep="/"))
+png(file=paste(myDir,myFile,sep="/"), width = 480, height = 480)
+plot(x = df$myTime, y = df$Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)", xlab = "", ylim=c(0,6))
 dev.off()
